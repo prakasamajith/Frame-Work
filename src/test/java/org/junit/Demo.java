@@ -1,16 +1,8 @@
 package org.junit;
 
-import java.util.List;
-
-import org.junit.runner.JUnitCore;
-import org.junit.runner.Result;
-import org.junit.runner.RunWith;
-import org.junit.runner.notification.Failure;
-import org.junit.runners.Suite;
-import org.junit.runners.Suite.SuiteClasses;
 import org.openqa.selenium.WebElement;
 
-public class Demo extends BaseClass {
+public class Demo extends JunitBaseClass {
 
 	@BeforeClass
 	public static void m1() {
@@ -51,6 +43,5 @@ public class Demo extends BaseClass {
 		String expectedTitle = ("Thoraipakkam OMR Branch");
 		Assert.assertEquals("verify title", expectedTitle, title);
 	}
-
 
 }
