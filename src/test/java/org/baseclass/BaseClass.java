@@ -242,7 +242,7 @@ public class BaseClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(secs));
 	}
 	// 34.Write a code to explicit wait for visibilityof
-	public void visbilityOfElement(WebElement element) {
+	public void visibilityOfElement(WebElement element) {
 		WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(60));
 		driverWait.until(ExpectedConditions.visibilityOf(element));
 	}
@@ -315,7 +315,7 @@ public class BaseClass {
 	
 	// 43.Write a code to clear values textbox
 	public void textBoxClear(WebElement element) {
-		visbilityOfElement(element);
+		visibilityOfElement(element);
 			element.clear();
 	}
 	// 44.Write a code to Takescreenshot

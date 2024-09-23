@@ -242,7 +242,7 @@ public class BaseClass {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(secs));
 	}
 	// 34.Write a code to explicit wait for visibilityof
-	public void visbilityOfElement(WebElement element) {
+	public void visibilityOfElement(WebElement element) {
 		WebDriverWait driverWait = new WebDriverWait(driver, Duration.ofSeconds(60));
 		driverWait.until(ExpectedConditions.visibilityOf(element));
 	}
@@ -315,7 +315,7 @@ public class BaseClass {
 	
 	// 43.Write a code to clear values textbox
 	public void textBoxClear(WebElement element) {
-		visbilityOfElement(element);
+		visibilityOfElement(element);
 			element.clear();
 	}
 	// 44.Write a code to Takescreenshot
@@ -379,7 +379,7 @@ public class BaseClass {
 	public String getCellData(String sheetName, int rownum, int cellnum) throws IOException {
 		String res = "";
 
-		File file = new File("Your Excel Sheet Path");
+		File file = new File("C:\\Users\\Thangapandiyan P\\eclipse-workspace\\Framework\\Excel Sheet\\Order ID Creation Test Data.xlsx");
 		FileInputStream fileInputStream = new FileInputStream(file);
 		Workbook workbook = new XSSFWorkbook(fileInputStream);
 		Sheet sheet = workbook.getSheet(sheetName);
@@ -426,7 +426,7 @@ public class BaseClass {
 	}
 	//54.Write a code for createCellAndSetCellData in Excel sheet
 	public void createCellAndSetCellData(String sheetName, int rownum, int cellnum, String data) throws IOException {
-		File file = new File("Your Excel Sheet Path");
+		File file = new File("C:\\Users\\Thangapandiyan P\\eclipse-workspace\\Framework\\Excel Sheet\\Order ID Creation Test Data.xlsx");
 		FileInputStream fileInputStream = new FileInputStream(file);
 		Workbook workbook = new XSSFWorkbook(fileInputStream);
 		Sheet sheet = workbook.getSheet(sheetName);
@@ -439,7 +439,7 @@ public class BaseClass {
 	//55.Write a code for updateCellData in Excel sheet
 	public void updateCellData(String sheetName, int rownum, int cellnum, String oldData, String newData)
 			throws IOException {
-		File file = new File("Your Excel Sheet Path");
+		File file = new File("C:\\Users\\Thangapandiyan P\\eclipse-workspace\\Framework\\Excel Sheet\\Order ID Creation Test Data.xlsx");
 		FileInputStream fileInputStream = new FileInputStream(file);
 		Workbook workbook = new XSSFWorkbook(fileInputStream);
 		Sheet sheet = workbook.getSheet(sheetName);
