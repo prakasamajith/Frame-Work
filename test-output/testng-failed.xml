@@ -5,7 +5,7 @@
     <classes>
       <class name="org.testng.OrderIdPrint">
         <methods>
-          <include name="myAccount"/>
+          <include name="payment"/>
           <include name="launch"/>
           <include name="close"/>
         </methods>

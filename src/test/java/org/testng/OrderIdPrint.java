@@ -2,6 +2,7 @@ package org.testng;
 
 import java.io.IOException;
 
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
@@ -20,7 +21,7 @@ public class OrderIdPrint extends BaseClass {
 	}
 
 	
-	@Test(priority = 1)
+	@Test(priority = -1)
 	public void login() throws IOException {
 		WebElement txtUsername = findLocatorById("email");
 		elementSendKeys(txtUsername, getCellData("Sheet1", 1, 0));
@@ -29,7 +30,41 @@ public class OrderIdPrint extends BaseClass {
 		WebElement btnLogin = findLocatorByXpath("//button[@value=\"login\"]");
 		elementClick(btnLogin);
 	}
+	
+	@Test(priority = 1)
+	public void cartCheck() throws InterruptedException {
+		String str="0";
+		WebElement cartNo = findLocatorByXpath("//span[@class='cart badge badge-xs badge-danger position-relative mr-0 cart_count']");
+		String cartNoCount = cartNo.getText();
+		int c = Integer.parseInt(cartNoCount);
+		System.out.println("Cart count:" + cartNoCount);
+		if (!cartNoCount.equals(str)) {
+			WebElement cartBtn = findLocatorByClassName("cart_btn");
+			visibilityOfElement(cartBtn);
+			cartBtn.click();
+			Thread.sleep(1000);
+			WebElement goToCart = findLocatorByXpath("//a[(contains(text(),' Go To Cart '))]");
+			visibilityOfElement(goToCart);
+			goToCart.click();
+			Thread.sleep(1000);
+			WebElement close = findLocatorByXpath(
+					("//img[@src=\"https://omrbranch.com/front/images/close-icon.png\"]"));
+			visibilityOfElement(close);
+			for (int i = 1; i <= c; i++) {
+				WebElement closeBtn = findLocatorByXpath("(//img[@src='https://omrbranch.com/front/images/close-icon.png'])[" + i + "]");
+				visibilityOfElement(closeBtn);
+				elementClick(closeBtn);
+			}
+		}
+		WebElement homeBtn = findLocatorByXpath("(//a[@class='nav-link'])[1]");
+		try {
+			elementClick(homeBtn);
+		} catch (StaleElementReferenceException e) {
+			homeBtn = findLocatorByXpath("(//a[@class='nav-link'])[1]");
+			elementClick(homeBtn);
+		}
 
+	}
 	
 	@Test(priority = 2)
 	public void addProduct() throws InterruptedException {
@@ -56,6 +91,7 @@ public class OrderIdPrint extends BaseClass {
 		elementClick(addAddress);
 		WebElement addressType = findLocatorById("address_type");
 		elementSendKeys(addressType, getCellData("Sheet1", 1, 2));
+		Thread.sleep(1000);
 		WebElement firstName = findLocatorByName("first_name");
 		visibilityOfElement(firstName);
 		elementSendKeys(firstName, getCellData("Sheet1", 1, 3));
