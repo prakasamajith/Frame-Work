@@ -13,7 +13,7 @@
 	<test name="Test2">
 		<parameter name="userName" value="prakasamajith@gmail.com"></parameter>
 		<classes>
-			<class name="org.testng.Sample" />
+			<class name="org.testng.All_Sample_Codes" />
 		</classes>
 	</test>
 </suite>
