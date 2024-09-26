@@ -3,11 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="org.testng.Run">
+      <class name="org.testng.Hello">
         <methods>
-          <include name="fbLogin"/>
+          <include name="login"/>
         </methods>
-      </class> <!-- org.testng.Run -->
+      </class> <!-- org.testng.Hello -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
