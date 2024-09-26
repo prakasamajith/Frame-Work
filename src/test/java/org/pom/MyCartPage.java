@@ -30,7 +30,7 @@ public class MyCartPage extends BaseClass {
 
 	@FindBy(id = "payment_type")
 	private WebElement selectPayment;
-	@FindBy(xpath = "\"//label[@for=\\\"visa_card\\\"]\"")
+	@FindBy(xpath = "//label[@for=\"visa_card\"]")
 	private WebElement visaCard;
 	@FindBy(name = "card_no")
 	private WebElement cardNo;
@@ -119,7 +119,7 @@ public class MyCartPage extends BaseClass {
 			String house, String addressValue, String stateValue, String cityValue, String zip, String cardType,
 			String cardNumber, String expMonth, String expYear, String cvvValue) {
 
-		addAddress.click();
+		elementClick(addAddress);
 		selectDropdownText(addAddress, addressTypeValue);
 		elementSendKeys(firstName, firstNameValue);
 		elementSendKeys(lastName, lastNameValue);

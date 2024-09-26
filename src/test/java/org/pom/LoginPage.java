@@ -3,7 +3,7 @@ package org.pom;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class loginPage extends BaseClass {
+public class LoginPage extends BaseClass {
 
 	@FindBy(id = "email")
 	private WebElement txtUserName;
@@ -30,4 +30,5 @@ public class loginPage extends BaseClass {
 		elementSendKeys(txtPassword, Password);
 		elementClick(btnLogin);
 	}
+
 }

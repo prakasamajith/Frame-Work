@@ -45,6 +45,7 @@ public class OrderConfirmationPage extends BaseClass {
 		elementClick(ordersTab);
 		elementClick(moreDetails);
 		String orderId = orderNumber.getText();
-		createCellAndSetCellData("Sheet1", 1, 13, orderId);
+		System.out.println(orderId);
 	}
+
 }
